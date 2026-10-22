@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دولة الذئاب | WOLF CITY RP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #0b0613;
+    --panel: #171024;
+    --purple: #8b5cf6;
+    --light: #d9c5ff;
+    --text: #f7f2ff;
+    --muted: #aaa0bc;
+    --border: #a78bfa30;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background:
+        radial-gradient(ellipse at 15% 10%, #54258b30, transparent 40%),
+        radial-gradient(ellipse at 85% 75%, #6729a520, transparent 35%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .12;
+    background-image: radial-gradient(#b99aff 1px, transparent 1px);
+    background-size: 32px 32px;
+    z-index: -1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+/* الشريط العلوي */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 900;
+    font-size: 19px;
+}
+
+.brand-mark {
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #a78bfa, #54258b);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 25px #8b5cf640;
+}
+
+.brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 3px;
+}
+
+.brand small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    direction: ltr;
+}
+
+.nav-status {
+    border: 1px solid var(--border);
+    background: #ffffff05;
+    border-radius: 30px;
+    padding: 9px 15px;
+    color: var(--light);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #a78bfa;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #a78bfa;
+}
+
+/* الواجهة الرئيسية */
+
+.hero {
+    min-height: 570px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+    padding: 60px 0 55px;
+}
+
+.hero-content {
+    animation: fadeUp .8s ease both;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    background: #8b5cf610;
+    color: var(--light);
+    border-radius: 30px;
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.3;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.hero h1 span {
+    display: block;
+    background: linear-gradient(90deg, #d9c5ff, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    color: var(--muted);
+    line-height: 2.1;
+    font-size: 15px;
+    max-width: 480px;
+    margin: 20px 0 28px;
+}
+
+.buttons {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    min-height: 52px;
+    padding: 13px 22px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    transition: .25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.btn-primary {
+    color: white;
+    background: linear-gradient(135deg, #9d73ff, #6736c5);
+    box-shadow: 0 8px 30px #8b5cf635;
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    background: #ffffff06;
+    color: var(--light);
+}
+
+/* حركة شعار ديسكورد */
+
+.discord-btn svg {
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    animation: discordMove 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 7px #c4a7ff);
+}
+
+@keyframes discordMove {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(-5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* صورة الذئب الرئيسية */
+
+.wolf-stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    animation: fadeUp 1s ease both;
+}
+
+.wolf-glow {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    background: #8b5cf625;
+    filter: blur(75px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.wolf-frame {
+    width: min(100%, 420px);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    position: relative;
+    border-radius: 35px;
+    background: linear-gradient(145deg, #ffffff08, #8b5cf608);
+    border: 1px solid var(--border);
+    box-shadow: 0 25px 80px #00000040, inset 0 0 45px #8b5cf608;
+    overflow: hidden;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+}
+
+.wolf-frame:focus,
+.wolf-frame:focus-visible,
+.wolf-frame:active {
+    outline: none;
+}
+
+.wolf-frame::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #b99aff18;
+    border-radius: 26px;
+    pointer-events: none;
+}
+
+.wolf-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    inset: 0;
+    padding: 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+.wolf-closed {
+    opacity: 0;
+    transition: opacity .12s ease;
+}
+
+.wolf-frame.closed .wolf-closed {
+    opacity: 1;
+}
+
+.wolf-frame.closed .wolf-open {
+    opacity: 0;
+}
+
+/* الأقسام */
+
+.section-heading {
+    text-align: center;
+    margin: 15px 0 32px;
+}
+
+.section-heading .mini-title {
+    color: var(--light);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: clamp(25px, 4vw, 36px);
+    font-weight: 900;
+    margin: 8px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-bottom: 65px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    padding: 26px 22px;
+    min-height: 245px;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    background: linear-gradient(145deg, #1b122b, #100a1b);
+    transition: .3s ease;
+    animation: fadeUp .7s ease both;
+}
+
+.card:nth-child(2) {
+    animation-delay: .12s;
+}
+
+.card:nth-child(3) {
+    animation-delay: .24s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #a78bfa85;
+    box-shadow: 0 20px 45px #00000030, 0 0 25px #8b5cf610;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -60px;
+    left: -50px;
+    background: #8b5cf620;
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.card-icon {
+    width: 76px;
+    height: 76px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #8b5cf612;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+    transition: transform .3s ease;
+}
+
+.card:hover .card-icon img {
+    transform: scale(1.08);
+}
+
+.card h3 {
+    font-size: 19px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 12px;
+    line-height: 2;
+    color: var(--muted);
+}
+
+.card-tag {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 5px 11px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    color: var(--light);
+    font-size: 10px;
+}
+
+/* دعوة ديسكورد */
+
+.discord-panel {
+    margin-bottom: 65px;
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+    background:
+        radial-gradient(ellipse at left, #8b5cf620, transparent 50%),
+        #171024;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.discord-panel h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.discord-panel p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* التذييل */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 25px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 2;
+}
+
+footer strong {
+    color: var(--light);
+}
+
+/* الحركات */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* الجوال */
+
+@media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 38px;
+        gap: 15px;
+    }
+
+    .hero-content {
+        order: 1;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .wolf-stage {
+        order: 0;
+        min-height: 310px;
+    }
+
+    .wolf-frame {
+        width: min(100%, 310px);
+    }
+
+    .wolf-glow {
+        width: 220px;
+        height: 220px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .discord-panel {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 18px;
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    .nav-status {
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <nav class="navbar">
+        <a href="#" class="brand">
+            <div class="brand-mark">
+                <img
+                    src="https://www.dropbox.com/scl/fi/jzym6n08zmaswl93dkbs2/file_0000000039a8820abad5f4f26b54860f.png?rlkey=91lj3o7x0rgetbw8pcm6hj18e&st=y7kv7ei7&raw=1"
+                    alt="شعار WOLF CITY">
+            </div>
+            <div>
+                دولة الذئاب
+                <small>WOLF CITY ROLEPLAY</small>
+            </div>
+        </a>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            عالمك يبدأ هنا
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+
+            <div class="hero-content">
+                <div class="eyebrow">
+                    أهلاً بك في عالم الذئاب
+                </div>
+
+                <h1>
+                    اصنع قصتك
+                    <span>وعش واقعك</span>
+                </h1>
+
+                <p class="hero-description">
+                    مرحباً بك في دولة الذئاب، عالم الحياة الواقعية
+                    حيث تبدأ رحلتك وتصنع شخصيتك وتكتب قصتك بنفسك.
+                    اختر طريقك وكن جزءاً من مجتمعنا.
+                </p>
+
+                <div class="buttons">
+                    <a class="btn btn-primary discord-btn"
+                       href="https://discord.gg/2ZzQYH2hH"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.54 5.34A18.2 18.2 0 0 0 15 3.93l-.55 1.12a16.8 16.8 0 0 0-4.9 0L9 3.93a18.2 18.2 0 0 0-4.55 1.41C1.57 9.6.79 13.76 1.18 17.86a18.3 18.3 0 0 0 5.57 2.82l1.2-1.95c-.66-.24-1.3-.55-1.9-.9l.46-.36c3.66 1.7 7.63 1.7 11.25 0l.47.36c-.6.35-1.24.66-1.9.9l1.2 1.95a18.2 18.2 0 0 0 5.57-2.82c.46-4.75-.79-8.87-3.56-12.52ZM8.85 15.3c-1.1 0-2-1-2-2.22s.88-2.22 2-2.22 2.02 1 2 2.22c0 1.22-.88 2.22-2 2.22Zm6.3 0c-1.1 0-2-1-2-2.22s.88-2.22 2-2.22 2.02 1 2 2.22c0 1.22-.87 2.22-2 2.22Z"/>
+                        </svg>
+
+                        انضم إلى الديسكورد
+                    </a>
+
+                    <a href="#departments" class="btn btn-secondary">
+                        اكتشف أقسامنا
+                        <span>←</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="wolf-stage">
+                <div class="wolf-glow"></div>
+
+                <div class="wolf-frame" id="wolfFrame"
+                     role="button"
+                     tabindex="0"
+                     aria-label="شعار الذئب">
+
+                    <img
+                        class="wolf-open"
+                        src="https://www.dropbox.com/scl/fi/i9l5f9mtzkp0l1pf9c45r/file_00000000ecc0820aa87f5d478c4943f2.png?rlkey=7r1s8xxjjpibwc1qplrohjs1c&st=mxiktt26&raw=1"
+                        alt="شعار الذئب"
+                        draggable="false">
+
+                    <img
+                        class="wolf-closed"
+                        src="https://www.dropbox.com/scl/fi/xhsvd0ndtcnz6jawccubd/file_0000000001dc820a8bf283c963b8ba0d.png?rlkey=2dd3inoepqj9yzdrpjofo9f52&st=8esnclir&raw=1"
+                        alt=""
+                        draggable="false">
+                </div>
+            </div>
+
+        </section>
+
+        <section id="departments">
+            <div class="section-heading">
+                <div class="mini-title">WOLF CITY DEPARTMENTS</div>
+                <h2>أقسام دولة الذئاب</h2>
+                <p>اختر المجال الذي يناسب شخصيتك وابدأ رحلتك داخل المدينة.</p>
+            </div>
+
+            <div class="cards">
+
+                <article class="card">
+                    <div class="card-icon">
+                        <img
+                            src="https://www.dropbox.com/scl/fi/brajuaji53kbcd9kuhl93/1792638119405.png?rlkey=u83upkfbw9y5e3gsjmiwxepwm&st=4u8fo8ge&raw=1"
+                            alt="إيموجي الشرطة"
+                            loading="lazy">
+                    </div>
+                    <h3>الشرطة</h3>
+                    <p>حافظ على أمن المدينة، طبّق القانون، وكن جزءاً من منظومة الأمن والنظام.</p>
+                    <span class="card-tag">POLICE DEPARTMENT</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <img
+                            src="https://www.dropbox.com/scl/fi/5alrlcqoydc8yg5kf6ea8/file_000000005850820aba9fce9b4af7300b.png?rlkey=l30uf9bcea5ivrrcup50w0f1z&st=0x2zcxst&raw=1"
+                            alt="إيموجي الحياة الواقعية"
+                            loading="lazy">
+                    </div>
+                    <h3>الحياة الواقعية</h3>
+                    <p>ابدأ من الصفر، اعمل واجمع المال، كوّن علاقات واصنع قصة شخصيتك.</p>
+                    <span class="card-tag">REAL LIFE ROLEPLAY</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <img
+                            src="https://www.dropbox.com/scl/fi/34g40z0bicse7jv6lzlh7/file_000000003060820a9b33dab8b269b245.png?rlkey=tlwzw9dd41n92g0b9cvco0d9g&st=820wvd1d&raw=1"
+                            alt="إيموجي الإسعاف"
+                            loading="lazy">
+                    </div>
+                    <h3>الإسعاف</h3>
+                    <p>ساعد المصابين، استجب للبلاغات، وكن سبباً في إنقاذ الأرواح داخل المدينة.</p>
+                    <span class="card-tag">EMS DEPARTMENT</span>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="discord-panel">
+            <div>
+                <h2>مستعد تبدأ قصتك؟</h2>
+                <p>انضم إلى مجتمع WOLF CITY RP وتعرّف على قوانين المدينة وأهلها.</p>
+            </div>
+
+            <a class="btn btn-primary discord-btn"
+               href="https://discord.gg/2ZzQYH2hH"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.54 5.34A18.2 18.2 0 0 0 15 3.93l-.55 1.12a16.8 16.8 0 0 0-4.9 0L9 3.93a18.2 18.2 0 0 0-4.55 1.41C1.57 9.6.79 13.76 1.18 17.86a18.3 18.3 0 0 0 5.57 2.82l1.2-1.95c-.66-.24-1.3-.55-1.9-.9l.46-.36c3.66 1.7 7.63 1.7 11.25 0l.47.36c-.6.35-1.24.66-1.9.9l1.2 1.95a18.2 18.2 0 0 0 5.57-2.82c.46-4.75-.79-8.87-3.56-12.52ZM8.85 15.3c-1.1 0-2-1-2-2.22s.88-2.22 2-2.22 2.02 1 2 2.22c0 1.22-.88 2.22-2 2.22Zm6.3 0c-1.1 0-2-1-2-2.22s.88-2.22 2-2.22 2.02 1 2 2.22c0 1.22-.87 2.22-2 2.22Z"/>
+                </svg>
+
+                انضم الآن
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <strong>WOLF CITY RP</strong>
+        <p>جميع الحقوق محفوظة © دولة الذئاب</p>
+    </footer>
+
+</div>
+
+<script>
+const wolfFrame = document.getElementById("wolfFrame");
+
+function closeEyes() {
+    wolfFrame.classList.add("closed");
+}
+
+function openEyes() {
+    wolfFrame.classList.remove("closed");
+}
+
+wolfFrame.addEventListener("pointerdown", closeEyes);
+
+window.addEventListener("pointerup", openEyes);
+window.addEventListener("pointercancel", openEyes);
+window.addEventListener("blur", openEyes);
+
+wolfFrame.addEventListener("keydown", function(event) {
+    if (event.code === "Space" || event.code === "Enter") {
+        event.preventDefault();
+        closeEyes();
+    }
+});
+
+wolfFrame.addEventListener("keyup", function(event) {
+    if (event.code === "Space" || event.code === "Enter") {
+        openEyes();
+    }
+});
+</script>
+
+</body>
+</html>
